@@ -8,6 +8,10 @@ from .models import CustomUser
 class CustomUser_Admin(UserAdmin):
     list_display = ("id", "username", "author_pseudonym")
     list_display_links = ("id", "username", "author_pseudonym")
+    fieldsets = UserAdmin.fieldsets + ((None, {"fields": ("author_pseudonym",)}),)
+    add_fieldsets = UserAdmin.add_fieldsets + (
+        (None, {"fields": ("author_pseudonym",)}),
+    )
 
 
 admin.site.register(CustomUser, CustomUser_Admin)

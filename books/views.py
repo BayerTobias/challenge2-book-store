@@ -72,6 +72,7 @@ class BookDetailView(APIView):
     """
 
     permission_classes = [AllowAny]
+    renderer_classes = [JSONRenderer, XMLRenderer]
 
     def get(self, request, book_id):
         """
@@ -111,6 +112,7 @@ class ManageUserBooksView(APIView):
     """
 
     permission_classes = [IsNotDathVader]
+    renderer_classes = [JSONRenderer, XMLRenderer]
 
     def get(self, request):
         """
